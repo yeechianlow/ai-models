@@ -23,6 +23,9 @@ def _main(argv):
 
     # See https://github.com/pytorch/pytorch/issues/77764
     os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
+    os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"]="false"
+    os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"]=".20"
+    os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"]="platform"
 
     parser.add_argument(
         "--models",
